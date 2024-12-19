@@ -8,10 +8,7 @@ decode youtube video id into hexadecimal
 
     $ python -m b64dec __________8
     ffffffffffffffff
-
-## Notice
-
-Because urlsafe-base64 string includes '-' (minus sign)
+You cannot use '-' (minus sign) for prefix because urlsafe-base64 string contains the character:
 
     $ python -m b64dec -h
     fa
