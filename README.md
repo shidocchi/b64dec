@@ -26,3 +26,8 @@ use '+' (plus sign) for prefix character
 
     optional arguments:
       +h, ++help  show this help message and exit
+
+or use '--' for urlsafe-base64 string starting with minus sign
+
+    $ python -m b64dec -- -AAAAAAAAAA
+    f800000000000000
