@@ -3,7 +3,7 @@ import sys
 import argparse
 from base64 import urlsafe_b64decode as b64decode
 
-__version__ = '0.1'
+__version__ = '0.2.0'
 
 def b64dec(s:str) ->str:
     s += '=' * (-len(s) % 4)
