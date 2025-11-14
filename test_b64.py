@@ -57,5 +57,40 @@ class B64Test(unittest.TestCase):
     self.assertEqual('fffffffffffffffe', b64.b64dec('__________4'))
     self.assertEqual('ffffffffffffffff', b64.b64dec('__________8'))
 
+  def test_1b(self):
+    """encode 1byte into 2digit"""
+    self.assertEqual('AA', b64.b64enc('00'))
+    self.assertEqual('AQ', b64.b64enc('01'))
+    self.assertEqual('_g', b64.b64enc('fe'))
+    self.assertEqual('_w', b64.b64enc('ff'))
+
+  def test_2b(self):
+    """encode 2byte into 3digit"""
+    self.assertEqual('AAA', b64.b64enc('0000'))
+    self.assertEqual('AAE', b64.b64enc('0001'))
+    self.assertEqual('__4', b64.b64enc('fffe'))
+    self.assertEqual('__8', b64.b64enc('ffff'))
+
+  def test_3b(self):
+    """encode 3byte into 4digit"""
+    self.assertEqual('AAAA', b64.b64enc('000000'))
+    self.assertEqual('AAAB', b64.b64enc('000001'))
+    self.assertEqual('___-', b64.b64enc('fffffe'))
+    self.assertEqual('____', b64.b64enc('ffffff'))
+
+  def test_4b(self):
+    """encode 4byte into 6digit"""
+    self.assertEqual('AAAAAA', b64.b64enc('00000000'))
+    self.assertEqual('AAAAAQ', b64.b64enc('00000001'))
+    self.assertEqual('_____g', b64.b64enc('fffffffe'))
+    self.assertEqual('_____w', b64.b64enc('ffffffff'))
+
+  def test_8b(self):
+    """encode 8byte into 11digit"""
+    self.assertEqual('AAAAAAAAAAA', b64.b64enc('0000000000000000'))
+    self.assertEqual('AAAAAAAAAAE', b64.b64enc('0000000000000001'))
+    self.assertEqual('__________4', b64.b64enc('fffffffffffffffe'))
+    self.assertEqual('__________8', b64.b64enc('ffffffffffffffff'))
+
 if __name__ == "__main__":
     unittest.main()
