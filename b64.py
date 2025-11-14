@@ -15,7 +15,14 @@ def b64enc(s:str) ->str:
     return b64encode(bytes.fromhex(s)).rstrip(b'=').decode()
 
 if __name__ == '__main__':
-    parser = argparse.ArgumentParser(prefix_chars='+')
-    parser.add_argument('vid', help='youtube video id')
+    parser = argparse.ArgumentParser(
+      usage='b64.py [-h] [-e HEX] [-- vid]')
+    parser.add_argument('vid', nargs='?', help='youtube video id into hex')
+    parser.add_argument('-e', dest='hex', help='hex into youtube video id')
     args = parser.parse_args()
-    print(b64dec(args.vid))
+    if args.vid:
+      print(b64dec(args.vid))
+    elif args.hex:
+      print(b64enc(args.hex))
+    else:
+      parser.print_help()
