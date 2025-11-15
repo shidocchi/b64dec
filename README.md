@@ -28,5 +28,5 @@ You can use '-' (minus sign) as optional argument either urlsafe-base64 string c
 
 You can also convert hexadecimal string into base64 string:
 
-    $ python -m b64dec -e 0000000000000000
+    $ python -m b64 -e 0000000000000000
     AAAAAAAAAAA
