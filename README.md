@@ -3,31 +3,30 @@ decode youtube video id into hexadecimal
 
 ## Usage
 
-    $ python -m b64dec AAAAAAAAAAA
+You can convert base64 string into hexadecimal string:
+
+    $ python -m b64 -- AAAAAAAAAAA
     0000000000000000
 
-    $ python -m b64dec __________8
+    $ python -m b64 -- __________8
     ffffffffffffffff
-You cannot use '-' (minus sign) for prefix because urlsafe-base64 string contains the character:
 
-    $ python -m b64dec -h
-    fa
+You can use '-' (minus sign) as optional argument either urlsafe-base64 string contains the character:
 
-    $ python -m b64dec --help
-    fbe85e96
+    $ python -m b64 -- -----------
+    fbefbefbefbefbef
 
-use '+' (plus sign) for prefix character
-
-    $ python -m b64dec +h
-    usage: b64dec.py [+h] vid
+    $ python -m b64 --help
+    usage: b64.py [-h] [-e HEX] [-- vid]
 
     positional arguments:
-      vid         youtube video id
+      vid         youtube video id into hex
 
-    optional arguments:
-      +h, ++help  show this help message and exit
+    options:
+      -h, --help  show this help message and exit
+      -e HEX      hex into youtube video id
 
-or use '--' for urlsafe-base64 string starting with minus sign
+You can also convert hexadecimal string into base64 string:
 
-    $ python -m b64dec -- -AAAAAAAAAA
-    f800000000000000
+    $ python -m b64dec -e 0000000000000000
+    AAAAAAAAAAA
