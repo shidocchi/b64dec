@@ -3,7 +3,7 @@ decode youtube video id into hexadecimal
 
 ## Usage
 
-You can convert base64 string into hexadecimal string:
+You can convert 11-digit base64 string into 8-byte hexadecimal string:
 
     $ python -m b64 -- AAAAAAAAAAA
     0000000000000000
