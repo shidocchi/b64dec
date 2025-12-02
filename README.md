@@ -1,6 +1,9 @@
 # b64dec
 decode youtube video id into hexadecimal
 
+- YouTubeなどで使われる「BASE64文字列 (URL-safe)」を「16進数文字列」に置き換えます
+- yt-dlpなどで録画を行う際、ファイル名生成に使用しています
+
 ## Usage
 
 You can convert 11-digit base64 string into 8-byte hexadecimal string:
